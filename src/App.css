@@ -6,5 +6,26 @@
   text-align: left;
 }
 
-div {
+.details-card {
+  margin: auto;
+  max-width: fit-content;
 }
+
+.details-card td {
+  text-align: left;
+}
+
+.title {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#title-header {
+  background: #212529;
+  color: white;
+  margin: 0;
+  max-width: none;
+}
+
+

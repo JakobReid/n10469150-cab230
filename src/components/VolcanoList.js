@@ -6,16 +6,11 @@ import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import CountrySelect from "./CountrySelect";
 
 function VolcanoList() {
-    const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState('Algeria');
+    const [distance, setDistance] = useState('Any Distance');
+    const [url, setUrl] = useState(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${country}`);
     const [rowData, setRowData] = useState([]);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        fetch("http://sefdb02.qut.edu.au:3001/countries")
-            .then(res => res.json())
-            .then(data => setCountries(data));
-    }, []);
 
     const columns = [
         { headerName: "Volcano ID", field: "id" },
@@ -26,23 +21,30 @@ function VolcanoList() {
     ];
 
     useEffect(() => {
-        fetch(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${country}`)
+        fetch(url)
             .then(res => res.json())
             .then(volcanoes => setRowData(volcanoes));
-    }, [country]);
+    }, [url]);
+
+    useEffect(() => {
+        if(distance != "Any Distance") {
+            setUrl(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${country}` + `&populatedWithin=${distance}`)
+        }
+        else {
+           setUrl(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${country}`)
+        }
+    }, [country, distance])
 
 
     return (
-        <div>
+        <div className="container">
             <h1>Volcano List</h1>
-            <CountrySelect countries={countries} setCountry={setCountry}/>
+            <CountrySelect setCountry={setCountry} setDistance={setDistance}/>
 
             <div
                 className="ag-theme-balham volcano-table"
                 style={{
                     height: "400px",
-                    maxWidth: "1000px",
-                    margin: "auto"
                 }}
             >
                 <AgGridReact
