@@ -27,9 +27,8 @@ function VolcanoList() {
 
     useEffect(() => {
         fetch(`http://sefdb02.qut.edu.au:3001/volcanoes?country=${country}`)
-            .then((res) => res.json())
-            .then((data) => data)
-            .then((volcanoes) => setRowData(volcanoes));
+            .then(res => res.json())
+            .then(volcanoes => setRowData(volcanoes));
     }, [country]);
 
 
@@ -52,7 +51,7 @@ function VolcanoList() {
                     pagination={true}
                     paginationPageSize={10}
                     onRowClicked={
-                        row=> navigate(`/volcanoDetails?name=${row.data.name}`)}
+                        row=> navigate(`/volcanoDetails?id=${row.data.id}`)}
                 />
             </div>
         </div>
