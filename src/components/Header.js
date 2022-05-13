@@ -1,33 +1,27 @@
 import { BrowserRouter, Link } from "react-router-dom";
+import volcano from "../assets/volcano.svg";
 
 function Header() {
     return (
-        <header className="container" id="title-header">
-            <h1 className="title">Volcanoes Around The World</h1>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <Link className="navbar-brand" to="/">Home</Link>
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link className="nav-link" to="/list">List</Link>
+        <header className="container-fluid" id="title-header">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="container-fluid">
+                    <Link className="navbar-brand" to="/"><img src={volcano} height="60"/><span>Volcanoes Around The World</span></Link>
+                    <div className="collapse navbar-collapse">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/list"><span>List</span></Link>
                             </li>
-                            <li class="nav-item">
-                                <Link className="nav-link" to="/register">Register</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/register"><span>Register</span></Link>
                             </li>
-                            <li class="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/login"><span>Login</span></Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-                {/* <nav className="navbar">
-                    <Link to="/">Home</Link>
-                    <Link to="/list">List</Link>
-                    <Link to="/register">Register</Link>
-                    <Link to="/login">Login</Link>
-                </nav> */}
         </header>
     );
 }

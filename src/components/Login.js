@@ -1,6 +1,6 @@
 function Register() {
     return (
-        <div className="register-form-container">
+        <div className="register-form container-fluid">
             <form className="register-form">
                 <h2>Register</h2>
 
@@ -9,7 +9,7 @@ function Register() {
 
                 <label for="password">Password:</label>
                 <input name="password" type="password"></input>
-                
+
                 <label for="confirm-password">Confirm Password:</label>
                 <input name="confirm-password" type="password"></input>
 
@@ -20,20 +20,20 @@ function Register() {
 }
 
 function Login() {
-    return(
-    <div className="login-form-container">
-        <form className="login-form">
-            <h2>Login</h2>
+    return (
+        <div className="login-form-container main">
+            <form className="login-form">
+                <h2>Login</h2>
 
-            <label for="username">Username:</label>
-            <input name="username" type="text"></input>
-            
-            <label for="password">Password:</label>
-            <input name="password" type="password"></input>
+                <label for="username">Username:</label>
+                <input name="username" type="text"></input>
 
-            <submit>Login</submit>
-        </form>
-    </div>
+                <label for="password">Password:</label>
+                <input name="password" type="password"></input>
+
+                <submit>Login</submit>
+            </form>
+        </div>
     );
 }
 

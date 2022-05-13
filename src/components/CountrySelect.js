@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Label } from "reactstrap";
 
-function CountrySelect({ setCountry, setDistance }) {
+function CountrySelect({ setCountryParam, setDistance }) {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ function CountrySelect({ setCountry, setDistance }) {
     ]
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <div className="col">
                     <Label htmlFor="country-select">Country: </Label>
@@ -27,7 +27,7 @@ function CountrySelect({ setCountry, setDistance }) {
                 <div className="col">
                     <select
                         id="country-select"
-                        onChange={(e) => setCountry(e.target.value)}
+                        onChange={(e) => setCountryParam(e.target.value)}
                     >
                         {countries.map((country) =>
                             <option key={country} value={country}
