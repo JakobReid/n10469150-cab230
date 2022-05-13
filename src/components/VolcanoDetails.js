@@ -31,11 +31,13 @@ function VolcanoDetails() {
     }, [])
 
     useEffect(() => {
-        setMap(
-            <Map defaultCenter={[parseFloat(volcano.latitude), parseFloat(volcano.longitude)]} >
-                <Marker anchor={[parseFloat(volcano.latitude), parseFloat(volcano.longitude)]} />
-            </Map>
-        )
+        if(isLoaded === true) {
+            setMap(
+                <Map defaultCenter={[parseFloat(volcano.latitude), parseFloat(volcano.longitude)]} >
+                    <Marker anchor={[parseFloat(volcano.latitude), parseFloat(volcano.longitude)]} />
+                </Map>
+            )
+        }
     }, [isLoaded])
     
 
@@ -62,7 +64,6 @@ function VolcanoDetails() {
                     </Table>
                 </div>
                 <div className="col">
-                    <Button onClick={() => {setIsLoaded(!isLoaded)}}>reload</Button>
                     {map}
                 </div>
             </div>

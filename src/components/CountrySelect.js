@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Label } from "reactstrap";
 
-function CountrySelect({ setCountryParam, setDistance }) {
+function CountrySelect({ setCountry, setDistance }) {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function CountrySelect({ setCountryParam, setDistance }) {
                 <div className="col">
                     <select
                         id="country-select"
-                        onChange={(e) => setCountryParam(e.target.value)}
+                        onChange={(e) => setCountry(e.target.value)}
                     >
                         {countries.map((country) =>
                             <option key={country} value={country}
