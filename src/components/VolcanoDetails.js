@@ -5,6 +5,9 @@ import { Map, Marker } from "pigeon-maps";
 import { osm } from 'pigeon-maps/providers'
 
 function VolcanoDetails() {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [searchParams] = useSearchParams();
+    const volcanoId = searchParams.get("id");
     const [volcano, setVolcano] = useState({
         name: '',
         country: '',
@@ -19,13 +22,16 @@ function VolcanoDetails() {
     const [map, setMap] = useState(
         <p>Loading</p>
     );
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [searchParams] = useSearchParams();
-
-    const volcanoId = searchParams.get("id");
 
     useEffect(() => {
-        fetch(`http://sefdb02.qut.edu.au:3001/volcano/${volcanoId}`)
+        const url = `http://sefdb02.qut.edu.au:3001/volcano/${volcanoId}`;
+        const token = localStorage.getItem("token");
+        const headers = {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        }
+        fetch(url, { headers })
             .then(res => res.json())
             .then(data => {setVolcano(data); setIsLoaded(true)})
     }, [])
@@ -40,7 +46,6 @@ function VolcanoDetails() {
         }
     }, [isLoaded])
     
-
     return (
         <div className="container main">
             <h1>{volcano.name}</h1>
@@ -55,7 +60,7 @@ function VolcanoDetails() {
                             {Object.entries(volcano).map(([key, value]) => {
                                 return (
                                     <tr>
-                                        <td>{key}</td>
+                                        <td className="property-name">{key}</td>
                                         <td>{value}</td>
                                     </tr>
                                 )

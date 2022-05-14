@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import { Register, Login, Logout } from './components/Login';
+import Register from './components/Register';
+import Login from './components/Login';
+import Logout from './components/Logout';
 import VolcanoList from './components/VolcanoList';
 import VolcanoDetails from './components/VolcanoDetails';
 
