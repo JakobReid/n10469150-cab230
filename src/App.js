@@ -16,15 +16,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Routes>
           <Route path="/" element={<VolcanoList />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />}></Route>
-          <Route path="/volcanoDetails" element={<VolcanoDetails currentUser={currentUser}/>}></Route>
+          <Route path="/volcanoDetails" element={<VolcanoDetails currentUser={currentUser} />}></Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }

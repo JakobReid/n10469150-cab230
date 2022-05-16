@@ -1,6 +1,7 @@
 .App {
   background: #919191;
   text-align: center;
+  min-height: 100vh;
 }
 
 footer {
@@ -50,7 +51,6 @@ footer p {
   color: white;
   padding-top: 10px;
   margin-bottom: 10px;
-  min-height: 80.6vh;
 }
 
 .user-form {
@@ -105,11 +105,11 @@ footer {
     margin-top: 10px;
 }
 
-footer .nav a {
+footer .nav .nav-link {
     color: white;
 }
 
-footer .nav a:hover {
+footer .nav .nav-link:hover {
     color: #feb331;
 }
 
