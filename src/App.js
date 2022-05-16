@@ -18,10 +18,10 @@ function App() {
       <BrowserRouter>
         <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         <Routes>
-          <Route path="/" element={<VolcanoList currentUser={currentUser} />}></Route>
+          <Route path="/" element={<VolcanoList />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />}></Route>
-          <Route path="/volcanoDetails" element={<VolcanoDetails />}></Route>
+          <Route path="/volcanoDetails" element={<VolcanoDetails currentUser={currentUser}/>}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

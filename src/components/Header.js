@@ -5,6 +5,7 @@ import volcano from "../assets/volcano.svg";
 function Header({ currentUser, setCurrentUser }) {
     const isLoggedIn = (currentUser === null ? false : true);
     const navigate = useNavigate();
+
     const logout = () => {
         sessionStorage.clear();
         setCurrentUser(null);
