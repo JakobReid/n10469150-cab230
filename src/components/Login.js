@@ -2,44 +2,63 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Button } from "reactstrap";
 
-function Login() {
-    const [ass, setAss] = useState('Ass');
+function Login({setCurrentUser }) {
     const navigate = useNavigate();
 
-    const login = () => {
+    const login = (e) => {
+        e.preventDefault();
         const url = `http://sefdb02.qut.edu.au:3001/user/login`;
         const user = {
-            email: "mike@gmail.com",
-            password: "password"
+            email: e.target.email.value,
+            password: e.target.password.value
         }
 
         fetch(url, {
             method: "POST",
-            headers: {accept: "application/json", "Content-Type": "application/json"},
+            headers: { accept: "application/json", "Content-Type": "application/json" },
             body: JSON.stringify(user)
         })
-        .then(res => res.json())
-        .then(data => {
-            localStorage.setItem("token", data.token)
-            navigate("/list")
-        });
-    }
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.message);
+                }
+                else {
+                    sessionStorage.setItem("token", data.token);
+                    setCurrentUser(user.email);
+                    navigate("/");
+                }
+            });
+    };
 
     return (
-        <div className="login-form-container main">
-            <form className="login-form">
+        <div className="login-form-container container main">
+            <form onSubmit={(e) => login(e)} className="user-form">
                 <h2>Login</h2>
-                <h2>{ass}</h2>
 
-                <label for="username">Username:</label>
-                <input name="username" type="text"></input>
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input type="email" id="email" className="form-control"></input>
+                </div>
 
-                <label for="password">Password:</label>
-                <input name="password" type="password"></input>
+                <div className="mb-3">
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" id="password" className="form-control"></input>
+                </div>
 
-                <Button onClick={() => {login()}}>Login</Button>
+
+                <div className="row">
+                    <div className="col">
+                        <Button type="submit" color="warning">Login</Button>
+                    </div>
+                    <div className="col register-link-container">
+                        <a style={{ color: "#feb331", fontSize: "14px", textDecoration: "underline" } } href="/register">New user? Click here to register</a>
+                    </div>
+                </div>
+
+
             </form>
-        </div>
+        </div >
     );
 }
 

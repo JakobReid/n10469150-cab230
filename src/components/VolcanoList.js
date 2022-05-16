@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import "ag-grid-community/dist/styles/ag-theme-alpine-dark.css";
 import CountrySelect from "./CountrySelect";
 
 function VolcanoList() {
@@ -15,11 +15,11 @@ function VolcanoList() {
     const navigate = useNavigate();
 
     const columns = [
-        { headerName: "Volcano ID", field: "id" },
-        { headerName: "Name", field: "name" },
-        { headerName: "Country", field: "country" },
-        { headerName: "Region", field: "region" },
-        { headerName: "Sub-Region", field: "subregion" }
+        { headerName: "ID", field: "id", sortable: true, filter: true, flex: 1 },
+        { headerName: "Name", field: "name", sortable: true, filter: true, flex: 2 },
+        { headerName: "Country", field: "country", sortable: true, filter: true, flex: 2 },
+        { headerName: "Region", field: "region", sortable: true, filter: true, flex: 2 },
+        { headerName: "Sub-Region", field: "subregion", sortable: true, filter: true, flex: 2 }
     ];
 
     useEffect(() => {
@@ -43,13 +43,15 @@ function VolcanoList() {
 
     return (
         <div className="container main">
-            <h1>Volcano List</h1>
+            <h1 className="volcano-list">Volcano List</h1>
+            
             <CountrySelect setCountry={setCountry} setDistance={setDistance}/>
 
             <div
-                className="ag-theme-balham volcano-table"
+                className="ag-theme-alpine-dark volcano-table"
                 style={{
-                    height: "400px",
+                    margin: "auto",
+                    height: "523px"
                 }}
             >
                 <AgGridReact

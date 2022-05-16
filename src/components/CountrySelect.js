@@ -19,14 +19,15 @@ function CountrySelect({ setCountry, setDistance }) {
     ]
 
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col">
+        <div className="container-fluid country-select-container">
+            <div className="row row-cols-auto">
+                <div className="col-md-auto">
                     <Label htmlFor="country-select">Country: </Label>
                 </div>
-                <div className="col">
+                <div className="col justify-content-left">
                     <select
                         id="country-select"
+                        className="form-select form-select-sm"
                         onChange={(e) => setCountry(e.target.value)}
                     >
                         {countries.map((country) =>
@@ -42,6 +43,7 @@ function CountrySelect({ setCountry, setDistance }) {
                 <div className="col">
                     <select
                         id="distance-select"
+                        className="form-select form-select-sm"
                         onChange={(e) => setDistance(e.target.value)}
                     >
                         {distances.map((distance) =>
