@@ -9,6 +9,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import VolcanoList from './components/VolcanoList';
 import VolcanoDetails from './components/VolcanoDetails';
+import About from './components/About';
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -22,6 +24,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />}></Route>
           <Route path="/volcanoDetails" element={<VolcanoDetails currentUser={currentUser} />}></Route>
+          <Route path="/about" element={<About/>}></Route>
         </Routes>
         <Footer/>
       </BrowserRouter>

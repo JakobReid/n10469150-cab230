@@ -49,12 +49,13 @@ footer p {
 .main {
   text-align: left;
   color: white;
-  padding-top: 10px;
+  padding-top: 45px;
   margin-bottom: 10px;
+  min-height: 81vh;
 }
 
 .user-form {
-  background: #2c2c2c;
+  background: #181d1f;
   border: solid 2px #feb331;
   border-radius: 10px;
   color: white;
@@ -68,7 +69,8 @@ footer p {
 }
 
 .map-container {
-  background: #212529;
+  background: #181d1f;
+  border: solid 2px #feb331;
   padding: 12px;
   margin: 10px;
 }
@@ -122,10 +124,6 @@ footer p {
     vertical-align: middle;
 }
 
-.volcano-list {
-  padding-top: 35px;
-}
-
 .country-select-container {
   margin-bottom: 10px;
 }
@@ -138,5 +136,7 @@ footer p {
   margin-bottom: 3px;
 }
 
-
-
+#report-modal {
+  max-width: fit-content;
+  min-width: 500px;
+}
