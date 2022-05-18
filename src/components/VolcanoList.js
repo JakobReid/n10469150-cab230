@@ -43,7 +43,7 @@ function VolcanoList() {
 
     return (
         <div className="container main">
-            <h1 className="volcano-list">Volcano List</h1>
+            <h1 className="content-title">Volcano List</h1>
             
             <CountrySelect setCountry={setCountry} setDistance={setDistance}/>
 

@@ -88,7 +88,6 @@ function VolcanoDetails({ currentUser }) {
             setMap(
                 <Map
                     provider={osm}
-                    height={600}
                     width=""
                     defaultCenter={[parseFloat(volcano.latitude), parseFloat(volcano.longitude)]}
                     defaultZoom={4}
@@ -108,10 +107,9 @@ function VolcanoDetails({ currentUser }) {
 
 
     return (
-        <div className="container main">
-                <h1>Volcano Details</h1>
-            <div className="row">
-                <div className="col-lg">
+        <div className="main d-flex align-items-stretch">
+            <div className="col-lg align-self-center details-card-container">
+                <h1 className="content-title">Volcano Details</h1>
                     <Table
                         id="details-card"
                         className="table"
@@ -178,7 +176,6 @@ function VolcanoDetails({ currentUser }) {
                 <div className="col-lg-8 map-container">
                     {map}
                 </div>
-            </div>
         </div>
     );
 }

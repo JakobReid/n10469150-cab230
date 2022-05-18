@@ -20,9 +20,12 @@ footer p {
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.details-card-container {
+  margin-bottom: 48px;
+}
+
 #details-card {
   margin: auto;
-  margin-bottom: 10px;
   border: solid 2px #feb331;
 }
 
@@ -48,9 +51,8 @@ footer p {
 
 .main {
   text-align: left;
-  color: white;
-  padding-top: 45px;
-  margin-bottom: 10px;
+  color: #ffffff;
+  padding-left: 100px;
   min-height: 81vh;
 }
 
@@ -72,7 +74,7 @@ footer p {
   background: #181d1f;
   border: solid 2px #feb331;
   padding: 12px;
-  margin: 10px;
+  margin: 50px;
 }
 
 .register-link-container {
@@ -130,6 +132,7 @@ footer p {
 
 .jajob-buttons {
   margin-right: 10px;
+  margin-top: 10px
 }
 
 .jajob-buttons svg{
@@ -139,4 +142,8 @@ footer p {
 #report-modal {
   max-width: fit-content;
   min-width: 500px;
+}
+
+.content-title {
+  margin-top: 20px;
 }
