@@ -14,7 +14,7 @@ function Footer() {
                 <Link className="nav-link" to="/">Home</Link>
                 <Link className="nav-link" to="/about">About</Link>
             </ul>
-            <p className="text-center" style={{ color: "white", padding: "10px" }}>&copy; Copyright Jakob Reid {getCurrentYear()}</p>
+            <p className="text-center" style={{ color: "white", padding: "10px" }}>&copy; Jakob Reid {getCurrentYear()}</p>
         </footer>
     );
 }
