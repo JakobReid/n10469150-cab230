@@ -2,10 +2,20 @@ import { useNavigate } from "react-router";
 import { Button } from "reactstrap"
 
 function Register() {
+
     const navigate = useNavigate();
+
     const register = (e) => {
         e.preventDefault();
+        console.log(e.target.confirmPassword)
+
+        if (e.target.confirmPassword.value !== e.target.password.value) {
+            alert("Error: Passwords do not match. Please re-enter.");
+            return;
+        }
+
         const url = `http://sefdb02.qut.edu.au:3001/user/register`;
+
         const user = {
             email: e.target.email.value,
             password: e.target.password.value
@@ -40,8 +50,8 @@ function Register() {
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="confirm-password">Confirm Password:</label>
-                    <input type="password" id="confirm-password" className="form-control"></input>
+                    <label htmlFor="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" className="form-control"></input>
                 </div>
 
                 <Button type="submit" color="warning" >Register</Button>
