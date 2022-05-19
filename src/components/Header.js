@@ -18,7 +18,7 @@ function Header({ currentUser, setCurrentUser }) {
                 <div className="container-fluid">
                     <Link id="navbar-title" className="navbar-brand" to="/"><img src={volcano} height="60" /><span>Volcanoes Around The World</span></Link>
                     <ul className="navbar-nav">
-                        <Link className="nav-link" to={isLoggedIn ? '/' : "/login"}><span>{isLoggedIn ? `logged in as ${currentUser}` : "Login"}</span></Link>
+                        <Link className="nav-link" to={isLoggedIn ? '/' : "/login"}><span>{isLoggedIn ? `logged in as ${currentUser}` : "Log In"}</span></Link>
                         <a className="nav-link" onClick={logout}><span>{isLoggedIn ? "Logout" : ""}</span></a>
                     </ul>
                 </div>
