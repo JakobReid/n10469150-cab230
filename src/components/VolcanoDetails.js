@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { Button, Table, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverHeader, PopoverBody, Tooltip } from "reactstrap";
+import { Button, Table,  Popover, PopoverHeader, PopoverBody, Tooltip } from "reactstrap";
 import { Map, Marker, Overlay } from "pigeon-maps";
 import { osm } from 'pigeon-maps/providers';
 import { FaFileAlt } from 'react-icons/fa';
-import BarChart from "./BarChart";
 import volcanoSvg from "../assets/volcano.svg";
+import ChartModal from "./ChartModal";
+import DetailsCard from "./DetailsCard";
 
 function VolcanoDetails({ currentUser }) {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -14,9 +15,7 @@ function VolcanoDetails({ currentUser }) {
     const [map, setMap] = useState(
         <p>Loading</p>
     );
-    const [modalBody, setModalBody] = useState(
-        <p>Click 'Run Report' to view population density data</p>
-    )
+
     const [volcano, setVolcano] = useState({
         name: '',
         country: '',
@@ -28,16 +27,6 @@ function VolcanoDetails({ currentUser }) {
         latitude: '',
         longitude: '',
     });
-
-    const getLabel = (prop_name) => {
-        let label = prop_name.replace(prop_name[0], prop_name[0].toUpperCase());
-        let underScoreIndex = label.indexOf('_');
-        if (underScoreIndex >= 0) {
-            label = label.replace(prop_name[underScoreIndex + 1], prop_name[underScoreIndex + 1].toUpperCase());
-        }
-        label = label.replace('_', ' ');
-        return (label)
-    }
 
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -105,77 +94,41 @@ function VolcanoDetails({ currentUser }) {
         }
     }, [isLoaded])
 
-
     return (
         <div className="main d-flex align-items-stretch">
             <div className="col-lg align-self-center details-card-container">
                 <h1 className="content-title">Volcano Details</h1>
-                    <Table
-                        id="details-card"
-                        className="table"
-                    >
-                        <tbody>
-                            {Object.entries(volcano).map(([key, value]) => {
-                                return (
-                                    <tr key={`tr-${key}`}>
-                                        <td key={`${key}-name`} className="property-name">{getLabel(key)}</td>
-                                        <td key={`${key}-value`} className="property-value">{value}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
-                    <Button
-                        color="warning"
-                        size="small"
-                        className="jajob-buttons"
-                        onClick={() => { navigate("/") }}
-                    >
-                        &#x2190; Back
-                    </Button>
-                    <Button
-                        color="success"
-                        size="small"
-                        className="jajob-buttons"
-                        onClick={() => {
-                            if (typeof currentUser !== 'undefined' && currentUser !== null) {
-                                setModalOpen(true)
-                            }
-                            else {
-                                alert("Error: You must be logged in to access reporting");
-                            }
-                        }}
-                    >
-                        <FaFileAlt /> Reports
-                    </Button>
-                    <Modal
-                        id="report-modal"
-                        isOpen={modalOpen}
-                    >
-                        <ModalHeader>
-                            Reports
-                        </ModalHeader>
+                <DetailsCard id="details-card" volcano={volcano}/>
 
-                        <ModalBody>
-                            {modalBody}
-                        </ModalBody>
+                <Button color="warning"
+                    size="small"
+                    className="jajob-buttons"
+                    onClick={() => { navigate("/") }}
+                >
+                    &#x2190; Back
+                </Button>
 
-                        <ModalFooter>
-                            <Button
-                                color="success"
-                                onClick={() => setModalBody(<BarChart data={populationData} />)}
-                            >
-                                Run Report
-                            </Button>
-                            <Button onClick={() => setModalOpen(false)}>
-                                Close
-                            </Button>
-                        </ModalFooter>
-                    </Modal>
-                </div>
-                <div className="col-lg-8 map-container">
-                    {map}
-                </div>
+                <Button
+                    color="success"
+                    size="small"
+                    className="jajob-buttons"
+                    onClick={() => {
+                        if (typeof currentUser !== 'undefined' && currentUser !== null) {
+                            setModalOpen(true)
+                        }
+                        else {
+                            alert("Error: You must be logged in to access reporting");
+                        }
+                    }}
+                >
+                    <FaFileAlt /> Reports
+                </Button>
+
+                <ChartModal modalOpen={modalOpen} setModalOpen={setModalOpen} populationData={populationData} />
+            </div>
+            <div className="col-lg-8 map-container">
+                {map}
+            </div>
         </div>
     );
 }

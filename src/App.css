@@ -1,27 +1,105 @@
+body {
+  margin: 0;
+}
+
+footer {
+  padding-top: 10px;
+  background-color: #181d1f;
+  margin-top: 10px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 10px;
+}
+
+footer .nav .nav-link {
+  color: white;
+}
+
+footer .nav .nav-link:hover {
+  color: #feb331;
+}
+
+span,a {
+  vertical-align: middle;
+}
+
 .App {
   background: #919191;
   text-align: center;
   min-height: 100vh;
 }
 
-footer {
-  background: #212529;
-  color: white;
+.content-title {
+  margin-top: 20px;
 }
 
-footer p {
-  margin: 0;
+.country-select-container {
+  margin-bottom: 10px;
+}
+
+.details-card-container {
+  margin-bottom: 48px;
+}
+
+.jajob-buttons {
+  margin-right: 10px;
+  margin-top: 10px
+}
+
+.jajob-buttons svg {
+  margin-bottom: 3px;
+}
+
+.main {
+  text-align: left;
+  color: #ffffff;
+  padding-left: 100px;
+  min-height: 81vh;
+}
+
+.map-container {
+  background: #181d1f;
+  border: solid 2px #feb331;
+  padding: 12px;
+  margin: 50px;
+}
+
+.navbar a {
+  color: white;
+  vertical-align: middle;
+}
+
+.register-link-container {
+  text-align: right;
+}
+
+.title {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.user-form {
+  background: #181d1f;
+  border: solid 2px #feb331;
+  border-radius: 10px;
+  color: white;
+  text-align: left;
+  margin: auto;
+  margin-top: 45px;
+  max-width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .volcano-table {
   text-align: left;
   border: solid 2px #feb331;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.details-card-container {
-  margin-bottom: 48px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #details-card {
@@ -43,46 +121,9 @@ footer p {
   background: #181d1f;
 }
 
-.title {
-  text-align: left;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-
-.main {
-  text-align: left;
-  color: #ffffff;
-  padding-left: 100px;
-  min-height: 81vh;
-}
-
-.user-form {
-  background: #181d1f;
-  border: solid 2px #feb331;
-  border-radius: 10px;
-  color: white;
-  text-align: left;
-  margin: auto;
-  margin-top: 45px;
-  max-width: 500px;
-  padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.map-container {
-  background: #181d1f;
-  border: solid 2px #feb331;
-  padding: 12px;
-  margin: 50px;
-}
-
-.register-link-container {
-  text-align: right;
-}
-
-span, a {
-  vertical-align: middle;
+#report-modal {
+  max-width: fit-content;
+  min-width: 500px;
 }
 
 #title-header {
@@ -93,57 +134,8 @@ span, a {
 }
 
 #title-header .navbar {
-    background-color: #eb9f1b;
-    background-image: linear-gradient(315deg, #eb9f1b 100%, #eb9f1b 100%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
-
-body {
-  margin: 0;
-}
-
-footer {
-    padding-top: 10px;
-    background-color: #181d1f;
-    margin-top: 10px;
-}
-
-footer .nav .nav-link {
-    color: white;
-}
-
-footer .nav .nav-link:hover {
-    color: #feb331;
-}
-
-footer p {
-    font-size: 10px;
-}
-
-.navbar a {
-    color: white;
-    vertical-align: middle;
-}
-
-.country-select-container {
-  margin-bottom: 10px;
-}
-
-.jajob-buttons {
-  margin-right: 10px;
-  margin-top: 10px
-}
-
-.jajob-buttons svg{
-  margin-bottom: 3px;
-}
-
-#report-modal {
-  max-width: fit-content;
-  min-width: 500px;
-}
-
-.content-title {
-  margin-top: 20px;
+  background-color: #eb9f1b;
+  background-image: linear-gradient(315deg, #eb9f1b 100%, #eb9f1b 100%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }

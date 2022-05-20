@@ -34,7 +34,7 @@ function Login({setCurrentUser }) {
     return (
         <div className="login-form-container container main">
             <form onSubmit={(e) => login(e)} className="user-form">
-                <h2>Login</h2>
+                <h2>Log in</h2>
 
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email:</label>
@@ -49,7 +49,7 @@ function Login({setCurrentUser }) {
 
                 <div className="row">
                     <div className="col">
-                        <Button type="submit" color="warning">Login</Button>
+                        <Button type="submit" color="warning">Log in</Button>
                     </div>
                     <div className="col register-link-container">
                         <a style={{ color: "#feb331", fontSize: "14px", textDecoration: "underline" } } href="/register">New user? Click here to register</a>

@@ -3,8 +3,6 @@ import Chart from 'chart.js/auto';
 
 function BarChart({data, options}) {
 
-
-
     const chartData = ({
         labels: data.map((data) => data.distance),
         datasets: [{
